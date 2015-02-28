@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall    CMakeFiles/test.dir/main.cpp.o CMakeFiles/test.dir/SoundexTest.cpp.o  -o test  -L/home/jpdev/bin/googlemock/mybuild  -L/home/jpdev/bin/googlemock/gtest/mybuild -rdynamic -lpthread -lgmock -lgtest -Wl,-rpath,/home/jpdev/bin/googlemock/mybuild:/home/jpdev/bin/googlemock/gtest/mybuild 
