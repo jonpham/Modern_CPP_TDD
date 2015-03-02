@@ -8,19 +8,27 @@ class Soundex
 {
 public:
     string encode(const string& word) const {
-        auto encoded = word.substr(0,1);
+        auto encoded = head(word)+encodedDigits(word);
         
-        if (word.length() > 1) {
-            encoded += "1";
-        }
         return zeroPad(encoded);
     } 
 
 private:
     string zeroPad(const string& word) const {
-    auto zerosNeeded = 4 - word.length();
+        auto zerosNeeded = 4 - word.length();
+        return word + string(zerosNeeded,'0');
+    }
+    
+    string head(const string& word) const {
+        return word.substr(0,1);   
+    }
 
-    return word + string(zerosNeeded,'0');
+    string encodedDigits(const string& word) const {
+        if (word.length() > 1) {
+            return "1";
+        }
+        
+        return "";
     }
 
 };
