@@ -1,6 +1,7 @@
 #ifndef Soundex_h
 #define Soundex_h
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -35,10 +36,16 @@ private:
     }
 
     string encodedDigit(char letter) const {
-        if (letter == 'b') return "1";
-        else if (letter == 'c') return "2";
-        else
-        return "";
+        const unordered_map<char, string> encodings {
+            {'b', "1"}, {'f', "1"}, {'p', "1"}, {'v',"1"},
+            {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"},
+                {'q', "2"}, {'s', "2"}, {'x', "2"}, {'z',"2"},
+            {'d', "3"}, {'t', "3"},
+            {'l', "4"},
+            {'m', "5"}, {'n', "5"},          
+            {'r', "6"} 
+        };
+        return encodings.find(letter)->second;
     }
 };
 
