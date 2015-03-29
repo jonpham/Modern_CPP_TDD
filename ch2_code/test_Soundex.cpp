@@ -24,6 +24,10 @@ TEST_F(SoundexEncoding, PadWithZerosToEnsureThreeDigits) {
 TEST_F(SoundexEncoding, ReplaceConsonantsWithAppropriateDigits) {
     ASSERT_THAT(soundex.encode("Ib"), Eq("I100")); 
     ASSERT_THAT(soundex.encode("Ic"), Eq("I200")); 
-    ASSERT_THAT(soundex.encode("Id"), Eq("I300")); 
+    ASSERT_THAT(soundex.encode("Id"), Eq("I300"));
+    ASSERT_THAT(soundex.encode("Ax"), Eq("A200")); 
 }
 
+TEST_F(SoundexEncoding, NegTestingIgnoreNonAlphabetics) {
+    ASSERT_THAT(soundex.encode("A$"), Eq("A000"));
+}
